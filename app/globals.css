@@ -1,0 +1,194 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0a0a0a;
+  background-image: url('/Backgroud.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Logo Drawing Animation */
+:root {
+  --logo-drawing-speed: 1.5s;
+  --logo-path-1-length: 80;
+  --logo-path-2-length: 9;
+  --logo-path-3-length: 24;
+  --logo-path-4-length: 26;
+}
+
+#animated-logo .logo-path {
+  fill: transparent;
+  stroke: currentColor;
+  stroke-width: 2.71203;
+}
+
+/* Path 1 - Main diagonal lines */
+#animated-logo .logo-path-1 {
+  stroke-dasharray: var(--logo-path-1-length);
+  stroke-dashoffset: var(--logo-path-1-length);
+  animation: drawLogo1 calc(var(--logo-drawing-speed) * 2) ease-in-out infinite;
+}
+
+/* Path 2 - Horizontal line */
+#animated-logo .logo-path-2 {
+  stroke-dasharray: var(--logo-path-2-length);
+  stroke-dashoffset: var(--logo-path-2-length);
+  animation: drawLogo2 calc(var(--logo-drawing-speed) * 2) ease-in-out 0.3s infinite;
+}
+
+/* Path 3 - Bottom horizontal line */
+#animated-logo .logo-path-3 {
+  stroke-dasharray: var(--logo-path-3-length);
+  stroke-dashoffset: var(--logo-path-3-length);
+  animation: drawLogo3 calc(var(--logo-drawing-speed) * 2) ease-in-out 0.6s infinite;
+}
+
+/* Path 4 - Vertical line */
+#animated-logo .logo-path-4 {
+  stroke-dasharray: var(--logo-path-4-length);
+  stroke-dashoffset: var(--logo-path-4-length);
+  animation: drawLogo4 calc(var(--logo-drawing-speed) * 2) ease-in-out 0.9s infinite;
+}
+
+@keyframes drawLogo1 {
+  0%, 100% {
+    stroke-dashoffset: var(--logo-path-1-length);
+  }
+  50% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes drawLogo2 {
+  0%, 100% {
+    stroke-dashoffset: var(--logo-path-2-length);
+  }
+  50% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes drawLogo3 {
+  0%, 100% {
+    stroke-dashoffset: var(--logo-path-3-length);
+  }
+  50% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes drawLogo4 {
+  0%, 100% {
+    stroke-dashoffset: var(--logo-path-4-length);
+  }
+  50% {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Logo Entrance Animation (Splash Screen) */
+:root {
+  --logo-entrance-path-1-length: 80;
+  --logo-entrance-path-2-length: 9;
+  --logo-entrance-path-3-length: 24;
+  --logo-entrance-path-4-length: 26;
+}
+
+#logo-entrance {
+  opacity: 0;
+  animation: logoFadeIn 0.5s ease-out 0.2s forwards;
+}
+
+#logo-entrance .logo-entrance-path {
+  fill: transparent;
+  stroke: white;
+  stroke-width: 2.71203;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Path 1 - Main diagonal lines */
+#logo-entrance .logo-entrance-path-1 {
+  stroke-dasharray: var(--logo-entrance-path-1-length);
+  stroke-dashoffset: var(--logo-entrance-path-1-length);
+  animation: drawEntrance1 1.2s ease-out 0.3s forwards;
+}
+
+/* Path 2 - Horizontal line */
+#logo-entrance .logo-entrance-path-2 {
+  stroke-dasharray: var(--logo-entrance-path-2-length);
+  stroke-dashoffset: var(--logo-entrance-path-2-length);
+  animation: drawEntrance2 0.8s ease-out 1.2s forwards;
+}
+
+/* Path 3 - Bottom horizontal line */
+#logo-entrance .logo-entrance-path-3 {
+  stroke-dasharray: var(--logo-entrance-path-3-length);
+  stroke-dashoffset: var(--logo-entrance-path-3-length);
+  animation: drawEntrance3 0.8s ease-out 1.4s forwards;
+}
+
+/* Path 4 - Vertical line */
+#logo-entrance .logo-entrance-path-4 {
+  stroke-dasharray: var(--logo-entrance-path-4-length);
+  stroke-dashoffset: var(--logo-entrance-path-4-length);
+  animation: drawEntrance4 0.8s ease-out 1.6s forwards;
+}
+
+@keyframes logoFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes drawEntrance1 {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes drawEntrance2 {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes drawEntrance3 {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes drawEntrance4 {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
