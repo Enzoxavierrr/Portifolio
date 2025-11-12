@@ -73,12 +73,6 @@ const Navbar = () => {
           
           <div className="flex gap-4">
             <button
-              onClick={() => scrollToSection("about")}
-              className="px-4 py-2 text-white hover:text-gray-300 transition-colors"
-            >
-              Sobre mim
-            </button>
-            <button
               onClick={() => scrollToSection("contact")}
               className="px-4 py-2 bg-white text-black rounded-lg hover:bg-gray-200 transition-colors"
             >
