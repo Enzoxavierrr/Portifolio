@@ -2,38 +2,38 @@ const Experience = () => {
   const experiences = [
     {
       title: "AGES II / Desenvolvedor Full Stack",
-      period: "AGOS 2025 - DEC 2025",
+      period: "AGO 2025 - DEZ 2025",
       description: [
-        "Currently, I am working on WebHR Mobile Application, WebHR is a Cloud based Social HR Software for SMEs by Verge Systems Inc. WebHR is currently used in over 160 countries world wide by thousands of organizations to manage HR, As a React.js developer with 1.5 year of experience, I have a strong foundation in creating dynamic and responsive mobile and web applications.",
-        "My experience with React Native has allowed me to develop cross-platform mobile applications that run seamlessly on both iOS and Android platforms. Additionally, my proficiency in React.js has equipped me with the skills to create fast, scalable, and dynamic web pages with excellent user experiences. I have a deep understanding of component-based architecture and state management, and I am well-versed in the latest web development trends and technologies.",
+        "No projeto Operações GAECO, desenvolvido durante a disciplina AGES II, participei da criação de um sistema mobile para apoiar o Ministério Público no gerenciamento de processos e operações. Atuei como desenvolvedor Full Stack, contribuindo no front-end (React + TypeScript) e no back-end (Java + Spring Boot), com foco na integração de APIs REST, autenticação e persistência de dados.",
+        "O projeto foi conduzido em equipe utilizando metodologias ágeis (Scrum), versionamento com Git e acompanhamento de tarefas via ClickUp. Minha atuação envolveu a implementação de componentes reutilizáveis, modelagem de dados no PostgreSQL, integração entre as camadas e garantia de qualidade nas entregas, simulando um ambiente profissional de desenvolvimento corporativo."
       ],
       technologies: [
-        "React Native",
+        "React",
+        "TypeScript",
         "Java",
-        "JavaScript",
-        "Typescript",
-        "SpringBoot",
-        "Docker",
+        "Spring Boot",
         "PostgreSQL",
+        "Docker",
+        "Git",
       ],
     },
     {
-      title: "AGES I/ Desenvolvedor Front-end",
+      title: "AGES I / Desenvolvedor Front-end",
       period: "FEV 2025 - JUL 2025",
       description: [
-        "Currently, I am working on WebHR Mobile Application, WebHR is a Cloud based Social HR Software for SMEs by Verge Systems Inc. WebHR is currently used in over 160 countries world wide by thousands of organizations to manage HR, As a React.js developer with 1.5 year of experience, I have a strong foundation in creating dynamic and responsive mobile and web applications.",
-        "My experience with React Native has allowed me to develop cross-platform mobile applications that run seamlessly on both iOS and Android platforms. Additionally, my proficiency in React.js has equipped me with the skills to create fast, scalable, and dynamic web pages with excellent user experiences. I have a deep understanding of component-based architecture and state management, and I am well-versed in the latest web development trends and technologies.",
+        "Durante a disciplina AGES I, desenvolvi o projeto Gastro — um aplicativo mobile voltado para recomendações gastronômicas e interação entre usuários e restaurantes locais. Atuei principalmente no desenvolvimento front-end com React Native e TypeScript, aplicando boas práticas de componentização, consumo de APIs REST e gerenciamento de estado.",
+        "O projeto simulou um ambiente corporativo com metodologia ágil Scrum, integração contínua via Azure DevOps e prototipação no Figma. Também participei da integração com o back-end (Node.js + Prisma + PostgreSQL), garantindo uma comunicação eficiente entre cliente e servidor e contribuindo para o design e usabilidade das interfaces."
       ],
       technologies: [
         "React Native",
-        "Java",
-        "JavaScript",
-        "Typescript",
-        "SpringBoot",
-        "Docker",
+        "TypeScript",
+        "Node.js",
+        "Prisma",
         "PostgreSQL",
+        "Figma",
+        "Azure DevOps"
       ],
-    },
+    }
   ];
 
   return (

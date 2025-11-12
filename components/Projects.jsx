@@ -47,7 +47,6 @@ const Projects = () => {
                 project.imagePosition === "right" ? "md:flex-row" : "md:flex-row-reverse"
               } gap-6 items-center`}
             >
-              {/* Image */}
               <div className="w-full md:w-96 h-96 flex-shrink-0 relative">
                 <Image
                   src={project.image}
@@ -57,7 +56,6 @@ const Projects = () => {
                 />
               </div>
 
-              {/* Text Card */}
               <div className="flex-1 flex flex-col">
                 <div
                   className="rounded-lg p-6 relative"
@@ -72,7 +70,6 @@ const Projects = () => {
                   </p>
                 </div>
 
-                {/* Icons outside the card */}
                 <div className={`flex gap-4 mt-4 ${project.imagePosition === "right" ? "justify-start" : "justify-end"}`}>
                   {project.imagePosition === "right" ? (
                     <>

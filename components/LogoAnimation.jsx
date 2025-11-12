@@ -9,10 +9,8 @@ const LogoAnimation = () => {
   const logoImgRef = useRef(null);
 
   const handleImageLoad = (e) => {
-    // Inject SVG using SVGInject
     SVGInject(e.target, {
       afterInject: (img, svg) => {
-        // Calculate path lengths after SVG is injected
         const calculatePaths = () => {
           if (svg) {
             const paths = svg.querySelectorAll("path");
@@ -28,7 +26,6 @@ const LogoAnimation = () => {
           }
         };
 
-        // Calculate paths with multiple attempts
         setTimeout(calculatePaths, 50);
         setTimeout(calculatePaths, 200);
         setTimeout(calculatePaths, 500);
@@ -37,16 +34,13 @@ const LogoAnimation = () => {
   };
 
   useEffect(() => {
-    // Block scroll during animation
     document.body.style.overflow = "hidden";
     document.documentElement.style.overflow = "hidden";
 
-    // Start fade out after animation completes
     const fadeTimer = setTimeout(() => {
       setIsFading(true);
     }, 2500);
 
-    // Hide animation after fade completes and restore scroll
     const hideTimer = setTimeout(() => {
       setIsVisible(false);
       document.body.style.overflow = "";
@@ -56,7 +50,6 @@ const LogoAnimation = () => {
     return () => {
       clearTimeout(fadeTimer);
       clearTimeout(hideTimer);
-      // Restore scroll on unmount
       document.body.style.overflow = "";
       document.documentElement.style.overflow = "";
     };

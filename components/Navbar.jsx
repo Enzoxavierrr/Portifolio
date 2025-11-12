@@ -6,7 +6,6 @@ const Navbar = () => {
   const logoRef = useRef(null);
 
   useEffect(() => {
-    // Calculate path lengths and set CSS variables
     if (logoRef.current) {
       const paths = logoRef.current.querySelectorAll("path");
       paths.forEach((path, index) => {

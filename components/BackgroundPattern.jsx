@@ -3,7 +3,7 @@
 const BackgroundPattern = () => {
   return (
     <div 
-      className="fixed inset-0 z-0 pointer-events-none"
+      className="fixed inset-0 z-0 pointer-events-none pattern-animation"
       style={{
         backgroundImage: "url('/Background-Pattern.svg.svg')",
         backgroundSize: "2609px 2609px",
@@ -11,7 +11,7 @@ const BackgroundPattern = () => {
         backgroundRepeat: "no-repeat",
         opacity: 0.5,
         transform: "translateY(-200px) translateX(200px)",
-        willChange: "transform",
+        willChange: "transform, opacity",
         zIndex: -1,
       }}
     />

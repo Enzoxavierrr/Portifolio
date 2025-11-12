@@ -19,7 +19,7 @@ html {
 body {
   background-color: #0a0a0a;
   background-image: url('/Backgroud.png');
-  background-size: cover;
+  background-size: 110% 110%;
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -36,18 +36,63 @@ body {
   overflow-x: hidden;
   margin: 0;
   padding: 0;
-  /* Performance optimizations */
-  will-change: auto;
+  will-change: background-position, background-size;
   transform: translateZ(0);
+  animation: backgroundFloat 20s ease-in-out infinite;
 }
 
-/* Prevent scroll during splash animation */
+@keyframes backgroundFloat {
+  0%, 100% {
+    background-position: center center;
+    background-size: 110% 110%;
+  }
+  25% {
+    background-position: 48% 52%;
+    background-size: 112% 112%;
+  }
+  50% {
+    background-position: 52% 48%;
+    background-size: 110% 110%;
+  }
+  75% {
+    background-position: 48% 48%;
+    background-size: 112% 112%;
+  }
+}
+
+.pattern-animation {
+  animation: patternFloat 25s ease-in-out infinite, patternPulse 8s ease-in-out infinite;
+}
+
+@keyframes patternFloat {
+  0%, 100% {
+    transform: translateY(-200px) translateX(200px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-180px) translateX(220px) rotate(1deg);
+  }
+  50% {
+    transform: translateY(-220px) translateX(180px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-190px) translateX(210px) rotate(-1deg);
+  }
+}
+
+@keyframes patternPulse {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.65;
+  }
+}
+
 body:has([data-splash-active]) {
   overflow: hidden;
   height: 100vh;
 }
 
-/* Logo Drawing Animation */
 :root {
   --logo-drawing-speed: 1.5s;
   --logo-path-1-length: 80;
@@ -62,28 +107,24 @@ body:has([data-splash-active]) {
   stroke-width: 2.71203;
 }
 
-/* Path 1 - Main diagonal lines */
 #animated-logo .logo-path-1 {
   stroke-dasharray: var(--logo-path-1-length);
   stroke-dashoffset: var(--logo-path-1-length);
   animation: drawLogo1 calc(var(--logo-drawing-speed) * 2) ease-in-out infinite;
 }
 
-/* Path 2 - Horizontal line */
 #animated-logo .logo-path-2 {
   stroke-dasharray: var(--logo-path-2-length);
   stroke-dashoffset: var(--logo-path-2-length);
   animation: drawLogo2 calc(var(--logo-drawing-speed) * 2) ease-in-out 0.3s infinite;
 }
 
-/* Path 3 - Bottom horizontal line */
 #animated-logo .logo-path-3 {
   stroke-dasharray: var(--logo-path-3-length);
   stroke-dashoffset: var(--logo-path-3-length);
   animation: drawLogo3 calc(var(--logo-drawing-speed) * 2) ease-in-out 0.6s infinite;
 }
 
-/* Path 4 - Vertical line */
 #animated-logo .logo-path-4 {
   stroke-dasharray: var(--logo-path-4-length);
   stroke-dashoffset: var(--logo-path-4-length);
@@ -126,7 +167,6 @@ body:has([data-splash-active]) {
   }
 }
 
-/* Logo Splash Animation (Spotify Style with SVGInject) */
 :root {
   --logo-path-1-length: 80;
   --logo-path-2-length: 9;
@@ -134,7 +174,6 @@ body:has([data-splash-active]) {
   --logo-path-4-length: 26;
 }
 
-/* Logo Splash Animation with SVGInject */
 .logo-splash-img {
   width: 120px;
   height: 130px;
@@ -143,12 +182,10 @@ body:has([data-splash-active]) {
   animation: splashFadeIn 0.3s ease-out forwards;
 }
 
-/* Hide img until SVG is injected to prevent flash */
 img.logo-splash-img {
   visibility: hidden;
 }
 
-/* Styles for injected SVG (SVGInject replaces img with svg) */
 svg.logo-splash-img {
   visibility: visible;
 }
@@ -161,28 +198,24 @@ svg.logo-splash-img path {
   stroke-linejoin: round;
 }
 
-/* Path 1 - Main diagonal lines (first path) */
 svg.logo-splash-img path:nth-of-type(1) {
   stroke-dasharray: var(--logo-path-1-length, 80);
   stroke-dashoffset: var(--logo-path-1-length, 80);
   animation: drawPath1 1s ease-out 0.3s forwards;
 }
 
-/* Path 2 - Horizontal line (second path) */
 svg.logo-splash-img path:nth-of-type(2) {
   stroke-dasharray: var(--logo-path-2-length, 9);
   stroke-dashoffset: var(--logo-path-2-length, 9);
   animation: drawPath2 0.6s ease-out 1.1s forwards;
 }
 
-/* Path 3 - Bottom horizontal line (third path) */
 svg.logo-splash-img path:nth-of-type(3) {
   stroke-dasharray: var(--logo-path-3-length, 24);
   stroke-dashoffset: var(--logo-path-3-length, 24);
   animation: drawPath3 0.6s ease-out 1.5s forwards;
 }
 
-/* Path 4 - Vertical line (fourth path) */
 svg.logo-splash-img path:nth-of-type(4) {
   stroke-dasharray: var(--logo-path-4-length, 26);
   stroke-dashoffset: var(--logo-path-4-length, 26);
