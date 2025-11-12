@@ -18,11 +18,6 @@ html {
 
 body {
   background-color: #0a0a0a;
-  background-image: url('/Backgroud.png');
-  background-size: 110% 110%;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
   color: #ffffff;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -36,28 +31,6 @@ body {
   overflow-x: hidden;
   margin: 0;
   padding: 0;
-  will-change: background-position, background-size;
-  transform: translateZ(0);
-  animation: backgroundFloat 20s ease-in-out infinite;
-}
-
-@keyframes backgroundFloat {
-  0%, 100% {
-    background-position: center center;
-    background-size: 110% 110%;
-  }
-  25% {
-    background-position: 48% 52%;
-    background-size: 112% 112%;
-  }
-  50% {
-    background-position: 52% 48%;
-    background-size: 110% 110%;
-  }
-  75% {
-    background-position: 48% 48%;
-    background-size: 112% 112%;
-  }
 }
 
 .pattern-animation {

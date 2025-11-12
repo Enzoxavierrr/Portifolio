@@ -1,7 +1,7 @@
 const Experience = () => {
   const experiences = [
     {
-      title: "AGES II / Desenvolvedor Full Stack",
+      title: "AGES II | Operações GAECO | Desenvolvedor Full Stack",
       period: "AGO 2025 - DEZ 2025",
       description: [
         "No projeto Operações GAECO, desenvolvido durante a disciplina AGES II, participei da criação de um sistema mobile para apoiar o Ministério Público no gerenciamento de processos e operações. Atuei como desenvolvedor Full Stack, contribuindo no front-end (React + TypeScript) e no back-end (Java + Spring Boot), com foco na integração de APIs REST, autenticação e persistência de dados.",
@@ -18,7 +18,21 @@ const Experience = () => {
       ],
     },
     {
-      title: "AGES I / Desenvolvedor Front-end",
+      title: "Freelancer | Odin Pedidos | Desenvolvedor Front-end",
+      period: "AGO 2025 - DEZ 2025",
+      description: [
+        "Atuei como desenvolvedor Front-end no projeto Odin Pedidos, contribuindo para a criação e aprimoramento de interfaces mobile voltadas à gestão de pedidos e controle de entregas. Fui responsável pelo desenvolvimento de telas responsivas, seguindo boas práticas de design e usabilidade.",
+        "Durante o projeto, utilizei React e TypeScript em conjunto com Figma e Git, garantindo a fidelidade visual dos protótipos e a manutenção de um código limpo e bem estruturado. Essa experiência reforçou minha capacidade de transformar requisitos de design em interfaces funcionais e intuitivas."
+      ],
+      technologies: [
+        "React",
+        "TypeScript",
+        "Figma",
+        "Git",
+      ],
+    },
+    {
+      title: "AGES I | Gastro | Desenvolvedor Front-end",
       period: "FEV 2025 - JUL 2025",
       description: [
         "Durante a disciplina AGES I, desenvolvi o projeto Gastro — um aplicativo mobile voltado para recomendações gastronômicas e interação entre usuários e restaurantes locais. Atuei principalmente no desenvolvimento front-end com React Native e TypeScript, aplicando boas práticas de componentização, consumo de APIs REST e gerenciamento de estado.",
@@ -48,17 +62,17 @@ const Experience = () => {
           {experiences.map((exp, index) => (
             <div key={index} className="mb-12">
               <div className="flex flex-row justify-between items-center mb-4">
-                <h3 className="text-white font-semibold text-xl">
+                <h3 className="text-white font-semibold text-2xl">
                   {exp.title}
                 </h3>
-                <p className="text-gray-400 text-sm">{exp.period}</p>
+                <p className="text-gray-100 text-sm">{exp.period}</p>
               </div>
               
               <div className="mb-4">
                 {exp.description.map((paragraph, index) => (
-                  <p 
-                    key={index} 
-                    className="text-gray-300 text-sm md:text-base leading-relaxed mb-3"
+                  <p
+                    key={index}
+                    className="text-gray-300 text-base md:text-lg leading-relaxed mb-3"
                   >
                     {paragraph}
                   </p>

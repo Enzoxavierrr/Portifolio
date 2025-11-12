@@ -9,7 +9,7 @@ const Projects = () => {
       titleRest: "Page",
       type: "Projeto pessoal",
       description:
-        "Redesenhei a landing page do Nubank, aplicando princípios modernos de UI e animações aprendidas no curso FrontPush, utilizando Next.js e técnicas avançadas de CSS.",
+        "Redesenhei a landing page do Nubank, aplicando princípios modernos de UI e animações aprendidas no curso FrontPush, utilizando HTML, JavaScript e técnicas avançadas de CSS.",
       color: "#8B5CF6",
       image: "/nubank-capa.png",
       githubUrl: "#",
@@ -22,7 +22,7 @@ const Projects = () => {
       titleRest: "page",
       type: "Projeto pessoal",
       description:
-        "Redesenhei a landing page do PagBank, aplicando princípios modernos de UI e animações aprendidas no curso FrontPush, utilizando Next.js e técnicas avançadas de CSS.",
+        "Redesenhei a landing page do PagBank, aplicando princípios modernos de UI e animações aprendidas no curso FrontPush, utilizando HTML, JavaScript e técnicas avançadas de CSS.",
       color: "#10B981",
       image: "/pag-bank-capa.png",
       githubUrl: "#",

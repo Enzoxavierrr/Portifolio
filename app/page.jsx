@@ -7,8 +7,8 @@ import About from "@/components/About";
 import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
-import BackgroundPattern from "@/components/BackgroundPattern";
 import LogoAnimation from "@/components/LogoAnimation";
+import GradientBlinds from "@/components/Background";
 
 export default function Home() {
   const [showContent, setShowContent] = useState(false);
@@ -29,7 +29,19 @@ export default function Home() {
           showContent ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
       >
-        <BackgroundPattern />
+        <div className="fixed inset-0" style={{ zIndex: -1, pointerEvents: 'none' }}>
+          <GradientBlinds
+            gradientColors={['#e0e0e0', '#0c2b4e']}
+            angle={45}
+            noise={0.3}
+            blindCount={20}
+            spotlightRadius={0.5}
+            spotlightSoftness={1}
+            spotlightOpacity={0.5}
+            mouseDampening={0}
+            shineDirection="right"
+          />
+        </div>
         <Navbar />
         <Hero />
         <About />

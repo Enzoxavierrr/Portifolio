@@ -1,6 +1,10 @@
 "use client";
 
 import Image from "next/image";
+import GradientBlinds from './Background';
+
+
+
 
 const Hero = () => {
   const scrollToContact = () => {
@@ -31,12 +35,12 @@ const Hero = () => {
         </h1>
         
         <p className="text-2xl text-gray-300 mb-6">
-          Eu vivo de Código e Café ☕
+          Eu vivo basicamente de Código e Café ☕.
         </p>
         
         <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
-          Sou desenvolvedor de software focado em clean code, performance e boas práticas. 
-          Sempre buscando equilíbrio entre front-end e back-end, unindo um design elegante 
+          Sou desenvolvedor de software focado em clean code, performance e boas práticas.
+          Sempre buscando equilíbrio entre front-end e back-end, unindo um design elegante
           a uma arquitetura eficiente e escalável.
         </p>
         
