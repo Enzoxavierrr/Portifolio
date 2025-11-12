@@ -12,6 +12,7 @@ const BackgroundPattern = () => {
         opacity: 0.5,
         transform: "translateY(-200px) translateX(200px)",
         willChange: "transform",
+        zIndex: -1,
       }}
     />
   );

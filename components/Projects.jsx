@@ -61,12 +61,6 @@ const Projects = () => {
               <div className="flex-1 flex flex-col">
                 <div
                   className="rounded-lg p-6 relative"
-                  style={{
-                    backgroundImage: "url('/card-projects.png')",
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    backgroundRepeat: "no-repeat",
-                  }}
                 >
                   <p className="text-white text-xs mb-2">{project.type}</p>
                   <h3 className="text-2xl font-semibold mb-4">
