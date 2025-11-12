@@ -45,6 +45,7 @@ const LogoAnimation = () => {
       className={`fixed inset-0 z-[100] flex items-center justify-center bg-[#0a0a0a] transition-opacity duration-500 ${
         isFading ? "opacity-0" : "opacity-100"
       }`}
+      style={{ willChange: "opacity" }}
     >
       <div className="relative">
         <svg
