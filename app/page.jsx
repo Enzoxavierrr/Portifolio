@@ -1,17 +1,25 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
+import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
-import LogoAnimation from "@/components/LogoAnimation";
-import GradientBlinds from "@/components/Background";
+
+const LogoAnimation = dynamic(() => import("@/components/LogoAnimation"), {
+  ssr: false,
+});
+
+const GradientBlinds = dynamic(() => import("@/components/Background"), {
+  ssr: false,
+});
 
 export default function Home() {
   const [showContent, setShowContent] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -21,25 +29,46 @@ export default function Home() {
     return () => clearTimeout(timer);
   }, []);
 
+  const handleBackgroundToggle = useCallback((e) => {
+    if (
+      e.target.tagName === "A" ||
+      e.target.tagName === "BUTTON" ||
+      e.target.closest("a") ||
+      e.target.closest("button")
+    ) {
+      return;
+    }
+    setIsPaused((prev) => !prev);
+  }, []);
+
   return (
     <>
       <LogoAnimation />
-      <main 
-        className={`min-h-screen relative z-10 transition-opacity duration-500 ${
+      <main
+        className={`min-h-screen relative z-10 transition-opacity ${
           showContent ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
+        onClick={handleBackgroundToggle}
       >
-        <div className="fixed inset-0" style={{ zIndex: -1, pointerEvents: 'none' }}>
+        <div
+          className="fixed inset-0"
+          style={{ zIndex: -1, pointerEvents: "none" }}
+        >
           <GradientBlinds
-            gradientColors={['#e0e0e0', '#0c2b4e']}
-            angle={45}
-            noise={0.3}
-            blindCount={20}
+            gradientColors={["#1a1a2e", "#16213e", "#0f3460", "#8B5CF6"]}
+            angle={35}
+            noise={0.15}
+            blindCount={24}
+            blindMinWidth={60}
             spotlightRadius={0.5}
-            spotlightSoftness={1}
-            spotlightOpacity={0.5}
-            mouseDampening={0}
+            spotlightSoftness={1.5}
+            spotlightOpacity={0.4}
+            mirrorGradient={true}
+            distortAmount={1.5}
+            mouseDampening={0.1}
             shineDirection="right"
+            mixBlendMode="normal"
+            mouseFollowPaused={isPaused}
           />
         </div>
         <Navbar />
@@ -52,4 +81,3 @@ export default function Home() {
     </>
   );
 }
-

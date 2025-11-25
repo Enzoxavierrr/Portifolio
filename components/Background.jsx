@@ -23,6 +23,7 @@ const GradientBlinds = ({
   className,
   dpr,
   paused = false,
+  mouseFollowPaused = false,
   gradientColors,
   angle = 0,
   noise = 0.3,
@@ -46,6 +47,11 @@ const GradientBlinds = ({
   const mouseTargetRef = useRef([0, 0]);
   const lastTimeRef = useRef(0);
   const firstResizeRef = useRef(true);
+  const mouseFollowPausedRef = useRef(mouseFollowPaused);
+
+  useEffect(() => {
+    mouseFollowPausedRef.current = mouseFollowPaused;
+  }, [mouseFollowPaused]);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -255,6 +261,7 @@ void main() {
     ro.observe(container);
 
     const onPointerMove = e => {
+      if (mouseFollowPausedRef.current) return;
       const rect = container.getBoundingClientRect();
       const scale = renderer.dpr || 1;
       const containerWidth = rect.width * scale;
@@ -336,7 +343,7 @@ void main() {
   return (
     <div
       ref={containerRef}
-      className={`w-full h-full overflow-hidden relative ${className}`}
+      className={`background-wrapper ${className}`}
       style={{
         pointerEvents: 'none',
         ...(mixBlendMode && {

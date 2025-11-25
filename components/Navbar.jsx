@@ -26,11 +26,11 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-sm border-b border-white/10">
-      <div className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 flex items-center justify-center">
+    <nav className="navbar">
+      <div className="container">
+        <div className="navbar-content">
+          <div className="navbar-brand">
+            <div className="logo-container">
               <svg
                 ref={logoRef}
                 width="27"
@@ -39,7 +39,7 @@ const Navbar = () => {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 id="animated-logo"
-                className="w-full h-auto"
+                className="logo-svg"
               >
                 <path
                   d="M0.000976562 1.35601H24.0158M3.50098 26.3911L14.251 13.6411L25.001 0.891125M3.00098 2.39112L13.751 14.8911L24.501 27.3911"
@@ -67,13 +67,13 @@ const Navbar = () => {
                 />
               </svg>
             </div>
-            <span className="text-white font-semibold text-lg">Enzo Xavier</span>
+            <span className="brand-name">Enzo Xavier</span>
           </div>
-          
-          <div className="flex gap-4">
+
+          <div className="navbar-actions">
             <button
               onClick={() => scrollToSection("contact")}
-              className="px-4 py-2 bg-white text-black rounded-lg hover:bg-gray-200 transition-colors"
+              className="btn-secondary"
             >
               Contato
             </button>

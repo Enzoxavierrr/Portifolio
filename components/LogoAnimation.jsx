@@ -60,9 +60,8 @@ const LogoAnimation = () => {
   return (
     <div
       data-splash-active
-      className={`fixed inset-0 z-[100] flex items-center justify-center bg-[#0a0a0a] transition-opacity duration-500 ${
-        isFading ? "opacity-0" : "opacity-100"
-      }`}
+      className={`logo-splash-container ${isFading ? "opacity-0" : "opacity-100"
+        }`}
       style={{
         position: "fixed",
         top: 0,

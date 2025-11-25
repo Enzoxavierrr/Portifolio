@@ -1,12 +1,81 @@
 "use client";
 
 import Image from "next/image";
-import GradientBlinds from './Background';
-
-
-
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
 
 const Hero = () => {
+  const sectionRef = useRef(null);
+  const imageRef = useRef(null);
+  const titleRef = useRef(null);
+  const subtitleRef = useRef(null);
+  const descriptionRef = useRef(null);
+  const buttonRef = useRef(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    const image = imageRef.current;
+    const title = titleRef.current;
+    const subtitle = subtitleRef.current;
+    const description = descriptionRef.current;
+    const button = buttonRef.current;
+
+    if (!section) return;
+
+    const elements = [image, title, subtitle, description, button].filter(Boolean);
+    
+    gsap.set(elements, { 
+      opacity: 0, 
+      y: 60,
+      scale: 0.95
+    });
+
+    const tl = gsap.timeline({
+      delay: 3.2,
+      defaults: { 
+        ease: "power4.out",
+        duration: 1
+      }
+    });
+
+    tl.to(image, {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      duration: 1.2,
+      ease: "elastic.out(1, 0.5)"
+    })
+    .to(title, {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      duration: 0.8
+    }, "-=0.7")
+    .to(subtitle, {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      duration: 0.7
+    }, "-=0.5")
+    .to(description, {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      duration: 0.7
+    }, "-=0.4")
+    .to(button, {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      duration: 0.6,
+      ease: "back.out(1.7)"
+    }, "-=0.3");
+
+    return () => {
+      tl.kill();
+    };
+  }, []);
+
   const scrollToContact = () => {
     const element = document.getElementById("contact");
     if (element) {
@@ -15,38 +84,40 @@ const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-6 pt-20 relative">
-      <div className="text-center max-w-4xl mx-auto relative z-10">
-        <div className="mb-8">
-          <div className="w-64 h-64 md:w-80 md:h-80 mx-auto relative">
-            <Image
-              src="/icon-1-svg.svg"
-              alt="Enzo Xavier"
-              width={320}
-              height={320}
-              priority
-              className="object-contain"
-            />
-          </div>
+    <section 
+      ref={sectionRef}
+      className="min-h-screen flex items-center justify-center hero-section relative"
+    >
+      <div className="text-center mx-auto relative z-10 hero-container">
+        <div ref={imageRef} className="hero-image-wrapper">
+          <Image
+            src="/icon-1-svg.svg"
+            alt="Enzo Xavier"
+            width={320}
+            height={320}
+            priority
+            className="object-contain"
+          />
         </div>
-        
-        <h1 className="text-5xl md:text-7xl font-bold text-white mb-4">
+
+        <h1 ref={titleRef} className="hero-title">
           Opa, eai, me chamo Enzo Xavier!
         </h1>
-        
-        <p className="text-2xl text-gray-300 mb-6">
+
+        <p ref={subtitleRef} className="hero-subtitle">
           Eu vivo basicamente de Código e Café ☕.
         </p>
-        
-        <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
+
+        <p ref={descriptionRef} className="hero-description">
           Sou desenvolvedor de software focado em clean code, performance e boas práticas.
           Sempre buscando equilíbrio entre front-end e back-end, unindo um design elegante
           a uma arquitetura eficiente e escalável.
         </p>
-        
+
         <button
+          ref={buttonRef}
           onClick={scrollToContact}
-          className="bg-white text-black px-8 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors"
+          className="btn-primary"
         >
           Entre em contato
         </button>
@@ -56,4 +127,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
