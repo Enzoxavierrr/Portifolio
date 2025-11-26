@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -151,7 +151,7 @@ const Projects = () => {
                   </p>
                 </div>
 
-                <div className={`project-links ${project.imagePosition === "right" ? "justify-start" : "justify-end"}`}>
+                <div className="project-links" style={{ justifyContent: project.imagePosition === "right" ? "flex-start" : "flex-end" }}>
                   {project.imagePosition === "right" ? (
                     <>
                       <a
