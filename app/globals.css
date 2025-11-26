@@ -614,13 +614,20 @@ body {
   position: relative;
   border-radius: 0.75rem;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  background-color: transparent;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+  box-sizing: border-box;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: block;
+  line-height: 0;
 }
 
 .project-item:hover .project-image-wrapper {
   transform: scale(1.02);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 @media (min-width: 768px) {
@@ -630,10 +637,53 @@ body {
   }
 }
 
+/* Wrapper span do Next.js Image - cobre toda a área interna */
+.project-image-wrapper > span {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+  line-height: 0 !important;
+  font-size: 0 !important;
+}
+
+/* Imagem dentro do span - preenche completamente sem espaços */
+.project-image-wrapper img,
+.project-image-wrapper span img,
 .project-image {
-  object-fit: contain;
-  border-radius: 0.5rem;
+  object-fit: cover !important;
+  object-position: center !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
   transition: transform 0.4s ease;
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-sizing: border-box !important;
+  z-index: 1;
+}
+
+/* Garantir que não há espaços no wrapper interno do Next.js */
+.project-image-wrapper > span > img {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .project-item:hover .project-image {

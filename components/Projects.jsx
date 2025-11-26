@@ -23,8 +23,8 @@ const Projects = () => {
         "Redesenhei a landing page do Nubank, aplicando princípios modernos de UI e animações aprendidas no curso FrontPush, utilizando HTML, JavaScript e técnicas avançadas de CSS.",
       color: "#8B5CF6",
       image: "/nubank-capa.png",
-      githubUrl: "#",
-      liveUrl: "#",
+      githubUrl: "https://github.com/Enzoxavierrr/Nubank.git",
+      liveUrl: "https://nubank-steel.vercel.app/",
       imagePosition: "right",
     },
     {
@@ -36,8 +36,8 @@ const Projects = () => {
         "Redesenhei a landing page do PagBank, aplicando princípios modernos de UI e animações aprendidas no curso FrontPush, utilizando HTML, JavaScript e técnicas avançadas de CSS.",
       color: "#10B981",
       image: "/pag-bank-capa.png",
-      githubUrl: "#",
-      liveUrl: "#",
+      githubUrl: "https://github.com/Enzoxavierrr/PagBank.git",
+      liveUrl: "https://pag-bank.vercel.app/",
       imagePosition: "left",
     },
   ];
@@ -136,6 +136,13 @@ const Projects = () => {
                   alt={project.title}
                   fill
                   className="project-image"
+                  sizes="(max-width: 768px) 100vw, 22rem"
+                  style={{
+                    objectFit: 'cover',
+                    objectPosition: 'center',
+                    width: '100%',
+                    height: '100%'
+                  }}
                 />
               </div>
 
