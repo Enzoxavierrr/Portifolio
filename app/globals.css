@@ -21,10 +21,11 @@ html {
   min-height: 100%;
   width: 100%;
   overflow-x: hidden;
+  background-color: #000000;
 }
 
 body {
-  background-color: var(--background);
+  background-color: #000000;
   color: var(--foreground);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -61,6 +62,15 @@ body {
 .opacity-100 { opacity: 1; }
 .opacity-0 { opacity: 0; }
 .pointer-events-none { pointer-events: none; }
+
+/* Background Wrapper */
+.background-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 
 /* Common Section Styles */
 .section-padding {
@@ -118,7 +128,6 @@ body {
   z-index: 50;
   background-color: transparent;
   backdrop-filter: blur(4px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .navbar-content {
@@ -162,9 +171,9 @@ body {
 .btn-secondary {
   position: relative;
   padding: 0.6rem 1.5rem;
-  background: linear-gradient(135deg, #7C3AED 0%, #8B5CF6 50%, #A78BFA 100%);
+  background: linear-gradient(135deg, #D97706 0%, #F59E0B 50%, #FBBF24 100%);
   background-size: 200% 200%;
-  color: #ffffff;
+  color: #0a0a0a;
   border-radius: 0.6rem;
   border: none;
   cursor: pointer;
@@ -174,8 +183,8 @@ body {
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   box-shadow: 
-    0 4px 15px rgba(124, 58, 237, 0.4),
-    0 0 0 1px rgba(139, 92, 246, 0.3),
+    0 4px 15px rgba(217, 119, 6, 0.4),
+    0 0 0 1px rgba(245, 158, 11, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.15);
   animation: btnGradientFlow 4s ease infinite;
 }
@@ -200,7 +209,7 @@ body {
   content: '';
   position: absolute;
   inset: -2px;
-  background: linear-gradient(135deg, #7C3AED, #A78BFA, #7C3AED);
+  background: linear-gradient(135deg, #D97706, #FBBF24, #D97706);
   border-radius: 0.7rem;
   z-index: -1;
   opacity: 0;
@@ -211,8 +220,8 @@ body {
 .btn-secondary:hover {
   transform: translateY(-3px) scale(1.02);
   box-shadow: 
-    0 8px 25px rgba(124, 58, 237, 0.5),
-    0 0 0 1px rgba(139, 92, 246, 0.5),
+    0 8px 25px rgba(217, 119, 6, 0.5),
+    0 0 0 1px rgba(245, 158, 11, 0.5),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
@@ -227,8 +236,13 @@ body {
 .btn-secondary:active {
   transform: translateY(-1px) scale(1);
   box-shadow: 
-    0 4px 12px rgba(124, 58, 237, 0.4),
-    0 0 0 1px rgba(139, 92, 246, 0.4);
+    0 4px 12px rgba(217, 119, 6, 0.4),
+    0 0 0 1px rgba(245, 158, 11, 0.4);
+}
+
+.btn-secondary:focus-visible {
+  outline: 2px solid #FBBF24;
+  outline-offset: 2px;
 }
 
 @keyframes btnGradientFlow {
@@ -283,7 +297,7 @@ body {
   padding: 1rem 2.5rem;
   border-radius: 0.75rem;
   font-weight: 600;
-  border: 2px solid rgba(139, 92, 246, 0.6);
+  border: 2px solid rgba(245, 158, 11, 0.6);
   cursor: pointer;
   font-size: 1.125rem;
   overflow: hidden;
@@ -298,7 +312,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #8B5CF6 0%, #a78bfa 50%, #8B5CF6 100%);
+  background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 50%, #F59E0B 100%);
   background-size: 200% 200%;
   z-index: -1;
   opacity: 0;
@@ -321,12 +335,12 @@ body {
 }
 
 .btn-primary:hover {
-  border-color: #8B5CF6;
-  color: #ffffff;
+  border-color: #F59E0B;
+  color: #0a0a0a;
   transform: translateY(-3px);
   box-shadow: 
-    0 10px 30px rgba(139, 92, 246, 0.4),
-    0 0 20px rgba(139, 92, 246, 0.2);
+    0 10px 30px rgba(245, 158, 11, 0.4),
+    0 0 20px rgba(245, 158, 11, 0.2);
 }
 
 .btn-primary:hover::before {
@@ -340,7 +354,12 @@ body {
 
 .btn-primary:active {
   transform: translateY(-1px);
-  box-shadow: 0 5px 15px rgba(139, 92, 246, 0.3);
+  box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
+}
+
+.btn-primary:focus-visible {
+  outline: 2px solid #FBBF24;
+  outline-offset: 2px;
 }
 
 @keyframes gradientShift {
@@ -402,8 +421,8 @@ body {
   width: 2px;
   background: linear-gradient(
     180deg,
-    rgba(139, 92, 246, 0.9) 0%,
-    rgba(139, 92, 246, 0.5) 100%
+    rgba(245, 158, 11, 0.9) 0%,
+    rgba(245, 158, 11, 0.5) 100%
   );
   border-radius: 1px;
 }
@@ -471,9 +490,9 @@ body {
 }
 
 .experience-card:hover {
-  border-color: rgba(139, 92, 246, 0.5);
+  border-color: rgba(245, 158, 11, 0.5);
   transform: translateX(4px);
-  box-shadow: 0 0 20px rgba(139, 92, 246, 0.15);
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.15);
 }
 
 .experience-header {
@@ -523,12 +542,12 @@ body {
 }
 
 .experience-period {
-  color: rgba(255, 255, 255, 0.85);
+  color: #ffffff;
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: 600;
   padding: 0.375rem 0.875rem;
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.3);
   border-radius: 2rem;
   white-space: nowrap;
 }
@@ -538,7 +557,7 @@ body {
 }
 
 .experience-description {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.95);
   font-size: 1.125rem;
   line-height: 1.8;
   margin-bottom: 1.25rem;
@@ -561,7 +580,8 @@ body {
 }
 
 .tech-tag {
-  background-color: transparent;
+  color: rgba(255, 255, 255, 0.95);
+  background-color: rgba(245, 158, 11, 0.1);
   border-radius: 0.5rem;
   font-size: 0.875rem;
   font-weight: 500;
@@ -618,8 +638,8 @@ body {
   background-color: transparent;
   transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
   box-sizing: border-box;
-  padding: 0 !important;
-  margin: 0 !important;
+  padding: 0;
+  margin: 0;
   display: block;
   line-height: 0;
 }
@@ -639,51 +659,35 @@ body {
 
 /* Wrapper span do Next.js Image - cobre toda a área interna */
 .project-image-wrapper > span {
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  display: block !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  box-sizing: border-box !important;
-  line-height: 0 !important;
-  font-size: 0 !important;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 0;
+  font-size: 0;
 }
 
 /* Imagem dentro do span - preenche completamente sem espaços */
 .project-image-wrapper img,
-.project-image-wrapper span img,
 .project-image {
-  object-fit: cover !important;
-  object-position: center !important;
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
+  object-fit: cover;
+  object-position: center;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   transition: transform 0.4s ease;
-  display: block !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  border: none !important;
-  border-radius: 0 !important;
-  box-sizing: border-box !important;
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  box-sizing: border-box;
   z-index: 1;
-}
-
-/* Garantir que não há espaços no wrapper interno do Next.js */
-.project-image-wrapper > span > img {
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  object-position: center !important;
-  margin: 0 !important;
-  padding: 0 !important;
 }
 
 .project-item:hover .project-image {
@@ -747,6 +751,11 @@ body {
   transform: translateY(-2px);
 }
 
+.project-link:focus-visible {
+  outline: 2px solid #FBBF24;
+  outline-offset: 2px;
+}
+
 /* Contact Section */
 .contact-content {
   text-align: center;
@@ -786,10 +795,15 @@ body {
 }
 
 .contact-link:hover {
-  background-color: rgba(139, 92, 246, 0.15);
-  border-color: rgba(139, 92, 246, 0.5);
-  color: #8B5CF6;
+  background-color: rgba(245, 158, 11, 0.15);
+  border-color: rgba(245, 158, 11, 0.5);
+  color: #F59E0B;
   transform: translateY(-3px);
+}
+
+.contact-link:focus-visible {
+  outline: 2px solid #FBBF24;
+  outline-offset: 2px;
 }
 
 /* Logo Animation */
@@ -914,3 +928,38 @@ svg.logo-splash-img path:nth-of-type(4) {
 @keyframes drawPath2 { to { stroke-dashoffset: 0; } }
 @keyframes drawPath3 { to { stroke-dashoffset: 0; } }
 @keyframes drawPath4 { to { stroke-dashoffset: 0; } }
+
+/* Floating Dock */
+.floating-dock-wrapper {
+  position: fixed;
+  z-index: 50;
+  /* Mobile: canto inferior esquerdo */
+  bottom: 1.5rem;
+  left: 1.5rem;
+  transform: none;
+}
+
+.floating-dock-desktop {
+  display: none;
+}
+
+.floating-dock-mobile {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .floating-dock-wrapper {
+    /* Desktop: centralizado na parte inferior */
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .floating-dock-desktop {
+    display: flex !important;
+  }
+  
+  .floating-dock-mobile {
+    display: none !important;
+  }
+}

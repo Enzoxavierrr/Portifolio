@@ -13,7 +13,7 @@ const Experience = () => {
   const timelineRef = useRef(null);
   const itemRefs = useRef([]);
 
-  const accentColor = "#8B5CF6";
+  const accentColor = "#F59E0B";
 
   const experiences = [
     {

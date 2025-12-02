@@ -8,6 +8,7 @@ import About from "@/components/About";
 import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
+import FloatingNavDock from "@/components/FloatingNavDock";
 
 const LogoAnimation = dynamic(() => import("@/components/LogoAnimation"), {
   ssr: false,
@@ -55,7 +56,7 @@ export default function Home() {
           style={{ zIndex: -1, pointerEvents: "none" }}
         >
           <GradientBlinds
-            gradientColors={["#1a1a2e", "#16213e", "#0f3460", "#8B5CF6"]}
+            gradientColors={["#1a1a2e", "#16213e", "#0f3460", "#F59E0B"]}
             angle={35}
             noise={0.15}
             blindCount={24}
@@ -77,6 +78,7 @@ export default function Home() {
         <Experience />
         <Projects />
         <Contact />
+        <FloatingNavDock />
       </main>
     </>
   );

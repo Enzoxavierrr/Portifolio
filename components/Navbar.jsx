@@ -73,7 +73,7 @@ const Navbar = () => {
           <div className="navbar-actions">
             <button
               onClick={() => scrollToSection("contact")}
-              className="btn-secondary"
+              className="btn-primary"
             >
               Contato
             </button>
