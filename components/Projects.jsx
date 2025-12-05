@@ -40,6 +40,19 @@ const Projects = () => {
       liveUrl: "https://pag-bank.vercel.app/",
       imagePosition: "left",
     },
+    {
+      title: "FizTarefa",
+      titleColor: "FizTarefa",
+      titleRest: "",
+      type: "Projeto pessoal",
+      description:
+        "Aplicação moderna de gerenciamento de tarefas e produtividade, construída com React, TypeScript e Supabase. Inclui timer Pomodoro, dashboard de estatísticas, calendário integrado e autenticação segura.",
+      color: "#F59E0B",
+      image: "/capa-FizTarefa.png",
+      githubUrl: "https://github.com/Enzoxavierrr/FizTarefa.git",
+      liveUrl: "https://fiz-tarefa.vercel.app/",
+      imagePosition: "right",
+    },
   ];
 
   useEffect(() => {

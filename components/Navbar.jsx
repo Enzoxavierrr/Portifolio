@@ -25,6 +25,26 @@ const Navbar = () => {
     }
   };
 
+  const handleDownloadCV = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch("/CV-Enzo_Xavier.pdf");
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "CV-Enzo_Xavier.pdf";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error("Erro ao baixar CV:", error);
+      // Fallback para o link direto
+      window.open("/CV-Enzo_Xavier.pdf", "_blank");
+    }
+  };
+
   return (
     <nav className="navbar">
       <div className="container">
@@ -77,6 +97,28 @@ const Navbar = () => {
             >
               Contato
             </button>
+            <a
+              href="/CV-Enzo_Xavier.pdf"
+              onClick={handleDownloadCV}
+              className="btn-download-cv"
+              aria-label="Baixar currículo"
+              title="Baixar currículo"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+            </a>
           </div>
         </div>
       </div>

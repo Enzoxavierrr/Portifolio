@@ -162,7 +162,7 @@ const Experience = () => {
         <h2 ref={titleRef} className="section-title">
           EXPERIÊNCIAS
         </h2>
-        <p ref={subtitleRef} className="section-subtitle">ACADÊMICAS</p>
+        <p ref={subtitleRef} className="section-subtitle">Algumas experiências acadêmicas e pessoais</p>
 
         <div className="experience-timeline-container">
           <div ref={timelineRef} className="timeline-line" aria-hidden="true" />
@@ -175,7 +175,7 @@ const Experience = () => {
                 className="experience-item"
               >
                 <div 
-                  className="timeline-dot" 
+                  className="timeline-dot"
                   style={{ borderColor: accentColor }}
                   aria-hidden="true"
                 >

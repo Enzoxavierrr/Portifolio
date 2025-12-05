@@ -66,9 +66,9 @@ const About = () => {
   }, []);
 
   const paragraphs = [
-    "Atualmente estou no 5º semestre de Engenharia de Software na PUCRS, sempre como desenvolvedor, busquei encontrar propósito na harmonia entre lógica e criatividade. Tenho foco na construção de estruturas de back-end limpas e eficientes, e na criação de interfaces front-end dinâmicas, explorando estilos em CSS, efeitos de animação e elementos 3D.",
-    "Transformo ideias em experiências interativas, priorizando design elegante, código limpo e desempenho consistente. Estou em constante aprimoramento nas tecnologias React Native, TypeScript e JavaScript, buscando elevar a qualidade visual e arquitetural dos meus projetos.",
-    "Acredito no equilíbrio entre funcionalidade e estética — criando soluções que não apenas funcionam de forma impecável, mas também encantam os usuários com experiências visuais marcantes e intuitivas."
+    "Estou no 5º semestre de Engenharia de Software na PUCRS, nessa trajetória, descobri que meu interesse principal está em transformar ideias soltas em algo claro e bem organizado. Gosto de entender o propósito por trás de cada funcionalidade e encontrar formas de torná-la mais simples e intuitiva.",
+    "Tenho experiência em desenvolvimento agíl, projetos mobiles acadêmicos e páginas web profissionais. Gosto de ambientes em que a comunicação é direta, as responsabilidades são claras e cada entrega realmente soma ao produto.",
+    "Procuro sempre criar soluções que façam sentido para o usuário e que tenham uma experiência fluida, agradável e bem pensada. Acredito que um bom produto nasce quando lógica e criatividade trabalham juntas."
   ];
 
   return (

@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Experience from "@/components/Experience";
+import Services from "@/components/Services";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import FloatingNavDock from "@/components/FloatingNavDock";
@@ -53,10 +54,10 @@ export default function Home() {
       >
         <div
           className="fixed inset-0"
-          style={{ zIndex: -1, pointerEvents: "none" }}
+          style={{ zIndex: -1, pointerEvents: "none", opacity: 0.6 }}
         >
           <GradientBlinds
-            gradientColors={["#1a1a2e", "#16213e", "#0f3460", "#F59E0B"]}
+            gradientColors={["#1a1a2e", "#2d2d3a", "#4a4a5a", "#6b6b7a", "#F59E0B"]}
             angle={35}
             noise={0.15}
             blindCount={24}
@@ -76,6 +77,7 @@ export default function Home() {
         <Hero />
         <About />
         <Experience />
+        <Services />
         <Projects />
         <Contact />
         <FloatingNavDock />
