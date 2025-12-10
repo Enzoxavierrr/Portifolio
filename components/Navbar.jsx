@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import ThemeToggle from "@/components/ThemeToggle";
 
 const Navbar = () => {
   const logoRef = useRef(null);
@@ -92,7 +91,6 @@ const Navbar = () => {
           </div>
 
           <div className="navbar-actions">
-            <ThemeToggle />
             <button
               onClick={() => scrollToSection("contact")}
               className="btn-primary"
