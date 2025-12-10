@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const Navbar = () => {
   const logoRef = useRef(null);
@@ -63,25 +64,25 @@ const Navbar = () => {
               >
                 <path
                   d="M0.000976562 1.35601H24.0158M3.50098 26.3911L14.251 13.6411L25.001 0.891125M3.00098 2.39112L13.751 14.8911L24.501 27.3911"
-                  stroke="white"
+                  stroke="currentColor"
                   strokeWidth="2.71203"
                   className="logo-path logo-path-1"
                 />
                 <path
                   d="M0.856445 14.3911H9.85645"
-                  stroke="white"
+                  stroke="currentColor"
                   strokeWidth="2.71203"
                   className="logo-path logo-path-2"
                 />
                 <path
                   d="M0.000976562 27.0469H23.5867"
-                  stroke="white"
+                  stroke="currentColor"
                   strokeWidth="2.71203"
                   className="logo-path logo-path-3"
                 />
                 <path
                   d="M1.35645 0.00274998V12.3911V25.8911"
-                  stroke="white"
+                  stroke="currentColor"
                   strokeWidth="2.71203"
                   className="logo-path logo-path-4"
                 />
@@ -91,6 +92,7 @@ const Navbar = () => {
           </div>
 
           <div className="navbar-actions">
+            <ThemeToggle />
             <button
               onClick={() => scrollToSection("contact")}
               className="btn-primary"

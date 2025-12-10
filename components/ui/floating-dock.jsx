@@ -7,7 +7,14 @@ import {
   useSpring,
   useTransform,
 } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
+import { useTheme } from "@/app/contexts/ThemeContext";
+
+// Helper para obter variáveis CSS
+const getCSSVariable = (varName) => {
+  if (typeof window === 'undefined') return '';
+  return getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
+};
 
 export const FloatingDock = ({ items }) => {
   return (
@@ -19,7 +26,13 @@ export const FloatingDock = ({ items }) => {
 };
 
 const FloatingDockMobile = ({ items }) => {
+  const { theme } = useTheme();
+  const [styles, setStyles] = useState(createStyles());
   const [open, setOpen] = useState(false);
+  
+  useEffect(() => {
+    setStyles(createStyles());
+  }, [theme]);
   // Filtra os separadores no mobile
   const filteredItems = items.filter(item => !item.isSeparator);
   
@@ -85,12 +98,25 @@ const FloatingDockMobile = ({ items }) => {
   );
 };
 
-const Separator = () => (
-  <div style={styles.separator} />
-);
+const Separator = () => {
+  const { theme } = useTheme();
+  const [styles, setStyles] = useState(createStyles());
+  
+  useEffect(() => {
+    setStyles(createStyles());
+  }, [theme]);
+  
+  return <div style={styles.separator} />;
+};
 
 const FloatingDockDesktop = ({ items }) => {
+  const { theme } = useTheme();
+  const [styles, setStyles] = useState(createStyles());
   const mouseX = useMotionValue(Infinity);
+  
+  useEffect(() => {
+    setStyles(createStyles());
+  }, [theme]);
   return (
     <motion.div
       onMouseMove={(e) => mouseX.set(e.pageX)}
@@ -110,7 +136,13 @@ const FloatingDockDesktop = ({ items }) => {
 };
 
 function IconContainer({ mouseX, title, icon, href }) {
+  const { theme } = useTheme();
+  const [styles, setStyles] = useState(createStyles());
   const ref = useRef(null);
+  
+  useEffect(() => {
+    setStyles(createStyles());
+  }, [theme]);
 
   const distance = useTransform(mouseX, (val) => {
     const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
@@ -189,95 +221,103 @@ function IconContainer({ mouseX, title, icon, href }) {
   );
 }
 
-const styles = {
-  desktopContainer: {
-    display: "none",
-    height: "64px",
-    alignItems: "flex-end",
-    gap: "16px",
-    borderRadius: "16px",
-    backgroundColor: "rgba(23, 23, 23, 0.9)",
-    padding: "0 16px 12px 16px",
-    backdropFilter: "blur(12px)",
-    border: "1px solid rgba(245, 158, 11, 0.3)",
-  },
-  separator: {
-    width: "1px",
-    height: "32px",
-    backgroundColor: "rgba(245, 158, 11, 0.4)",
-    alignSelf: "flex-end",
-    marginBottom: "4px",
-  },
-  mobileContainer: {
-    position: "relative",
-    display: "block",
-  },
-  mobileMenu: {
-    position: "absolute",
-    left: "0",
-    bottom: "100%",
-    marginBottom: "8px",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    gap: "8px",
-    width: "40px",
-  },
-  mobileItem: {
-    display: "flex",
-    width: "40px",
-    height: "40px",
-    alignItems: "center",
-    justifyContent: "center",
-    borderRadius: "50%",
-    backgroundColor: "rgba(23, 23, 23, 0.9)",
-    border: "1px solid rgba(245, 158, 11, 0.3)",
-    textDecoration: "none",
-    backdropFilter: "blur(12px)",
-  },
-  mobileIcon: {
-    width: "18px",
-    height: "18px",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  mobileButton: {
-    display: "flex",
-    width: "48px",
-    height: "48px",
-    alignItems: "center",
-    justifyContent: "center",
-    borderRadius: "50%",
-    backgroundColor: "rgba(23, 23, 23, 0.95)",
-    border: "1px solid rgba(245, 158, 11, 0.3)",
-    cursor: "pointer",
-    backdropFilter: "blur(12px)",
-    boxShadow: "0 4px 12px rgba(0, 0, 0, 0.3)",
-  },
-  iconContainer: {
-    position: "relative",
-    display: "flex",
-    aspectRatio: "1",
-    alignItems: "center",
-    justifyContent: "center",
-    borderRadius: "50%",
-    backgroundColor: "rgba(23, 23, 23, 0.9)",
-    border: "1px solid rgba(245, 158, 11, 0.2)",
-    transition: "border-color 0.2s ease",
-  },
-  tooltip: {
-    position: "absolute",
-    top: "-32px",
-    left: "50%",
-    width: "fit-content",
-    whiteSpace: "nowrap",
-    borderRadius: "6px",
-    border: "1px solid rgba(245, 158, 11, 0.4)",
-    backgroundColor: "rgba(23, 23, 23, 0.95)",
-    padding: "2px 8px",
-    fontSize: "12px",
-    color: "#F59E0B",
-  },
+// Função para criar estilos dinâmicos baseados em variáveis CSS
+const createStyles = () => {
+  const dockBg = getCSSVariable('--dock-bg') || 'rgba(0, 0, 0, 0.8)';
+  const dockBorder = getCSSVariable('--dock-border') || 'rgba(245, 158, 11, 0.3)';
+  const dockIcon = getCSSVariable('--dock-icon') || '#F59E0B';
+  const accent = getCSSVariable('--accent') || '#F59E0B';
+  
+  return {
+    desktopContainer: {
+      display: "none",
+      height: "64px",
+      alignItems: "flex-end",
+      gap: "16px",
+      borderRadius: "16px",
+      backgroundColor: dockBg,
+      padding: "0 16px 12px 16px",
+      backdropFilter: "blur(12px)",
+      border: `1px solid ${dockBorder}`,
+    },
+    separator: {
+      width: "1px",
+      height: "32px",
+      backgroundColor: dockBorder,
+      alignSelf: "flex-end",
+      marginBottom: "4px",
+    },
+    mobileContainer: {
+      position: "relative",
+      display: "block",
+    },
+    mobileMenu: {
+      position: "absolute",
+      left: "0",
+      bottom: "100%",
+      marginBottom: "8px",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      gap: "8px",
+      width: "40px",
+    },
+    mobileItem: {
+      display: "flex",
+      width: "40px",
+      height: "40px",
+      alignItems: "center",
+      justifyContent: "center",
+      borderRadius: "50%",
+      backgroundColor: dockBg,
+      border: `1px solid ${dockBorder}`,
+      textDecoration: "none",
+      backdropFilter: "blur(12px)",
+    },
+    mobileIcon: {
+      width: "18px",
+      height: "18px",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+    },
+    mobileButton: {
+      display: "flex",
+      width: "48px",
+      height: "48px",
+      alignItems: "center",
+      justifyContent: "center",
+      borderRadius: "50%",
+      backgroundColor: dockBg,
+      border: `1px solid ${dockBorder}`,
+      cursor: "pointer",
+      backdropFilter: "blur(12px)",
+      boxShadow: "0 4px 12px rgba(0, 0, 0, 0.3)",
+    },
+    iconContainer: {
+      position: "relative",
+      display: "flex",
+      aspectRatio: "1",
+      alignItems: "center",
+      justifyContent: "center",
+      borderRadius: "50%",
+      backgroundColor: dockBg,
+      border: `1px solid ${dockBorder}`,
+      transition: "border-color 0.2s ease",
+    },
+    tooltip: {
+      position: "absolute",
+      top: "-32px",
+      left: "50%",
+      width: "fit-content",
+      whiteSpace: "nowrap",
+      borderRadius: "6px",
+      border: `1px solid ${dockBorder}`,
+      backgroundColor: dockBg,
+      padding: "2px 8px",
+      fontSize: "12px",
+      color: accent,
+    },
+  };
 };
 

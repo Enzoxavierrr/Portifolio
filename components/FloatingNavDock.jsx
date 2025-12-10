@@ -3,8 +3,8 @@
 import { FloatingDock } from "@/components/ui/floating-dock";
 
 const FloatingNavDock = () => {
-  // Cor amber do projeto
-  const iconColor = "#F59E0B";
+  // Cor amber do projeto - usando variável CSS
+  const iconColor = "var(--dock-icon)";
   
   const items = [
     {
