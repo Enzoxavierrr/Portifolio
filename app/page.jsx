@@ -54,7 +54,7 @@ export default function Home() {
       >
         <div
           className="fixed inset-0"
-          style={{ zIndex: -1, pointerEvents: "none", opacity: 0.6 }}
+          style={{ zIndex: -1, pointerEvents: "none", opacity: 0.4 }}
         >
           <GradientBlinds
             gradientColors={["#1a1a2e", "#2d2d3a", "#4a4a5a", "#6b6b7a", "#F59E0B"]}
