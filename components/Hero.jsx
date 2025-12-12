@@ -166,7 +166,7 @@ const Hero = () => {
         </div>
 
         <h1 ref={titleRef} className="hero-title">
-          Opa, eai, me chamo Enzo Xavier!
+          Opa, eai, me chamo <span className="no-break">Enzo Xavier</span>!
         </h1>
 
         <p ref={subtitleRef} className="hero-subtitle">

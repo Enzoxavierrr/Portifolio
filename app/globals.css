@@ -356,6 +356,10 @@ body {
   text-shadow: 0 3px 6px rgba(0, 0, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
+.hero-title .no-break {
+  white-space: nowrap;
+}
+
 .hero-subtitle {
   font-size: 1.5rem;
   color: var(--text-secondary);

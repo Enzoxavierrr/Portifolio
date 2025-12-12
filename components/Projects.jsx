@@ -41,6 +41,19 @@ const Projects = () => {
       imagePosition: "left",
     },
     {
+      title: "Spider-Man",
+      titleColor: "Spider-Man",
+      titleRest: "",
+      type: "Projeto pessoal",
+      description:
+        "Landing page inspirada no jogo Spider-Man, desenvolvida com foco em design responsivo, animações fluidas e boas práticas de front-end. Utilizando propriedades avançadas de CSS e animações com GSAP.",
+      color: "#E63946",
+      image: "/card-spiderman.png",
+      githubUrl: "https://github.com/Enzoxavierrr/SpiderMan.git",
+      liveUrl: "https://spider-man-mocha.vercel.app/",
+      imagePosition: "right",
+    },
+    {
       title: "FizTarefa",
       titleColor: "FizTarefa",
       titleRest: "",
@@ -51,7 +64,7 @@ const Projects = () => {
       image: "/capa-FizTarefa.png",
       githubUrl: "https://github.com/Enzoxavierrr/FizTarefa.git",
       liveUrl: "https://fiz-tarefa.vercel.app/",
-      imagePosition: "right",
+      imagePosition: "left",
     },
   ];
 
